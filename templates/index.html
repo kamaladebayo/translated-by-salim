@@ -2,23 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="description" content="A web app that translates text between more than 30 languages. Fully powered by Microsoft Azure">
+    <link rel="shortcut icon" href="https://pbs.twimg.com/profile_images/1476966230775013380/xPMaGY5H_400x400.jpg" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <title>Salim Oyinlola's Translator</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Salim Oyinlola's Translator | An end-to-end AI project that translates text between more than 30 languages</title>
 </head>
-<body>
+<body id="body">
     <div class="container">
-        <h1>Hey, Amigo!</h1>
-        <h1>Salim's Translation App</h1>
-        <div>Enter the text you wish to translate, choose the language, and click Translate!</div>
-        <div>
+        <span id="themeSwitcher"><ion-icon name="sunny-outline"></ion-icon></span>
+        <main>
+            <h1><span>Salim's</span> Translation App</h1>
+            <h2>Hey, Amigo!</h2>
+            <p>Enter the text you wish to translate, choose the language, and click Translate!</p>
             <form method="POST">
-                <div class="form-group">
-                    <textarea name="text" cols="20" rows="10" class="form-control"></textarea>
+                <div class="form__row text">
+                    <label for="text">Text</label>
+                    <textarea name="text" class="form-control" placeholder="Exter the text"></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="language">Language:</label>
+                <div class="form__row target">
+                    <label for="language">Target language:</label>
                     <select name="language" class="form-control">
                         <option value="en">English</option>
                         <option value="fr">French</option>
@@ -37,7 +41,7 @@
                         <option value="hr">Croatian</option>
                         <option value="cs">Czech</option>
                         <option value="fr-ca">French (Canada)</option>
-                        <option value="hi">Hindi</option>salim
+                        <option value="hi">Hindi</option>
                         <option value="he">Hebrew</option>
                         <option value="ga">Irish</option>
                         <option value="tlh-Latn">Klingon</option>
@@ -55,11 +59,30 @@
                         <option value="fa">Persian</option>
                     </select>
                 </div>
-                <div>
+                <div class="form__row">
                     <button type="submit" class="btn btn-success">Translate!</button>
                 </div>
             </form>
-        </div>
+        </main>
     </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+    <script>
+        const themeSwitcher = document.getElementById("themeSwitcher")
+        const body = document.getElementById("body")
+        themeSwitcher.addEventListener("click", (e) => {
+            console.log("kjk");
+            if(e.target.name = "sunny-outline"){
+                e.target.name = "moon"
+                body.classList.add("light");
+            }else if(e.target.name = "moon"){
+                body.classList.remove("light");
+                e.target.name = "sunny-outline"
+            }
+        })
+    </script>
 </body>
 </html>
